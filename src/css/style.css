@@ -38,7 +38,37 @@ body {
 
 /* Landing page */
   .home-inner {
-    background-image: url("../assets/162406.jpg");
+    background-image: url("../assets/2109.jpg");
+  }
+
+  .caption {
+    width: 100%;
+    max-width: 100%;
+    position: absolute;
+    top: 27%;
+    z-index: 1;
+    color: white;
+    text-transform: uppercase;
+  }
+
+  .caption h1 {
+    font-size: 3.8rem;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .1rem .1rem .8rem black;
+    padding-bottom: 1rem;
+  }
+
+  .caption h3 {
+    font-size: 2rem;
+    text-shadow: .1rem .1rem .5rem black;
+    padding-bottom: 1.6rem;
+  }
+
+  .btn-lg {
+    border-width: medium;
+    border-radius: 0;
+    padding: .6rem 1.3rem;
   }
 /* End Landing page */
 
