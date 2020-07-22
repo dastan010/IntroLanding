@@ -39,6 +39,8 @@ body {
 /* Landing page */
   .home-inner {
     background-image: url("../assets/2109.jpg");
+    animation: fadeIn; /* referring directly to the animation's @keyframe declaration */
+    animation-duration: 3s; 
   }
 
   .caption {
