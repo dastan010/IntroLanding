@@ -37,22 +37,20 @@ body {
 
 
 /* Landing page */
-  .home-inner {
+  #scene {
     background-image: url("../assets/2109.jpg");
     animation: fadeIn;
     animation-duration: 3s; 
-    transform-style: preserve-3d;
   }
 
   .caption {
     width: 100%;
     max-width: 100%;
-    position: absolute;
-    top: 27%;
+    position: absolute !important;
+    top: 30% !important;
     z-index: 1;
     color: white;
     text-transform: uppercase;
-    transform: translateZ(20px);
   }
 
   .caption h1 {
@@ -61,21 +59,18 @@ body {
     letter-spacing: .3rem;
     text-shadow: .1rem .1rem .8rem black;
     padding-bottom: 1rem;
-    transform: translateZ(20px);
   }
 
   .caption h3 {
     font-size: 2rem;
     text-shadow: .1rem .1rem .5rem black;
     padding-bottom: 1.6rem;
-    transform: translateZ(20px);
   }
 
   .btn-lg {
     border-width: medium;
     border-radius: 0;
     padding: .6rem 1.3rem;
-    transform: translateZ(20px);
   }
 /* End Landing page */
 

@@ -1,3 +1,2 @@
-$('.home-inner').tilt({
-  scale: 2
-})
+let scene = document.getElementById('scene'),
+    parallaxInstance = new Parallax(scene);
