@@ -33,7 +33,7 @@ margin-right: 0px!important;
   height: 100%;
 }
 
-#scene {
+.home-inner {
   position: fixed;
   display: table;
   top: 0;

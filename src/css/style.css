@@ -37,7 +37,7 @@ body {
 
 
 /* Landing page */
-  #scene {
+  .home-inner {
     background-image: url("../assets/2109.jpg");
     animation: fadeIn;
     animation-duration: 3s; 
@@ -46,8 +46,8 @@ body {
   .caption {
     width: 100%;
     max-width: 100%;
-    position: absolute !important;
-    top: 30% !important;
+    position: absolute;
+    top: 20%;
     z-index: 1;
     color: white;
     text-transform: uppercase;
