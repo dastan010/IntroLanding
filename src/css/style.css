@@ -76,6 +76,12 @@ body {
 /* End Landing page */
 
 /* Section2 */
+#makeVisual {
+  font-size: 100px;
+  color: white;
+  /*font-family: 'Roboto Mono', monospace;*/
+}
+
 
 .ml5 {
   font-family: 'Roboto Mono', monospace;
