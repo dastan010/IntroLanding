@@ -1,3 +1,25 @@
+window.onclick = () => {
+    console.log(window.screen.width)
+}
+
+let screenWidth = window.screen.width,
+    screenHeight = window.screen.height,
+    val1 = 0,
+    val2 = 0
+
+switch (screenWidth) {
+    case 320 :
+        val1 = 10.200
+        val2 = 10.200
+        break
+    case 1920 :
+        val1 = 4.100
+        val2 = 4.200
+        break
+}
+
+
+
 window.onscroll = function(){
   scrollFunc()
 }
@@ -18,7 +40,7 @@ function scrollFunc(){
           targets: '.ml5 .line',
           duration: 600,
           easing: "easeOutExpo",
-          translateY: (el, i) => (-4.500 + 4.700*2*i) + "em"
+          translateY: (el, i) => (-val1 + val2*2*i) + "em"
         })
         .add({
           targets: '.ml5 .ampersand',

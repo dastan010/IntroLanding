@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 
 body {
   overflow-x: hidden;
@@ -77,9 +78,10 @@ body {
 /* Section2 */
 
 .ml5 {
+  font-family: 'Roboto Mono', monospace;
   position: relative;
   font-weight: 300;
-  font-size: 3em;
+  font-size: 2em;
   color:white;
 }
 
@@ -132,7 +134,28 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
 /*Small (sm) devices (landscape phones, 576px and up)*/
 @media (max-width: 576px) {
-  .ml5 {
+  .caption h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: .3rem;
+    text-shadow: .1rem .1rem .8rem black;
+    padding-bottom: 1rem;
+  }
+
+  .caption h3 {
+    font-size: 1rem;
+    text-shadow: .1rem .1rem .5rem black;
+    padding-bottom: 1.6rem;
+  }
+
+  .btn-lg {
+    border-width: medium;
+    border-radius: 0;
+    padding: .2rem .6rem;
     font-size: 20px;
+  }
+
+  .ml5 {
+    font-size: 17px;
   }
 }
