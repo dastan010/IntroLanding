@@ -77,13 +77,21 @@ body {
 
 /* Section2 */
 #makeVisual {
-  font-size: 100px;
+  visibility: hidden;
+  font-size: 90px;
   color: white;
-  /*font-family: 'Roboto Mono', monospace;*/
+}
+
+.makeVisualImg {
+  margin-top: 22px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
 
 
 .ml5 {
+  visibility: hidden;
   font-family: 'Roboto Mono', monospace;
   position: relative;
   font-weight: 300;
