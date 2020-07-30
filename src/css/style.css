@@ -1,6 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;500&display=swap');
 
+* {
+  box-sizing: border-box;
+}
+
 body {
   overflow-x: hidden;
   font-family: 'Lato', sans-serif;
@@ -76,6 +80,12 @@ body {
 /* End Landing page */
 
 /* Section2 */
+#visualContainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
 #makeVisual {
   visibility: hidden;
   font-size: 90px;
@@ -87,6 +97,10 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: block;
+}
+
+.dust {
+  position: absolute;
 }
 
 
