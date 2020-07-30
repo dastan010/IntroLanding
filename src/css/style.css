@@ -194,4 +194,10 @@ Extra (xl) large devices (large desktops, 1200px and up)
     margin-right: auto;
     display: block;
   }
+
+  #makeVisual {
+    visibility: hidden;
+    font-size: 30px;
+    color: white;
+  }
 }
