@@ -38,7 +38,7 @@ function scrollFunc(){
             makeVisual.style.visibility = 'visible'
             makeVisual.style.setProperty('--animate-duration', '5s')
             makeVisual.classList.add(...mVclasses)
-            if(window.screen.width > 1200){
+            if(true){
                 let visualContainer = document.getElementById('visualContainer'),
                     img = document.createElement("img")
 
@@ -140,8 +140,6 @@ function weightedRandomDistrib(peak) {
 }
 
 function createBlankImageData(imageData) {
-    imageData.width = 1200
-    console.log(imageData)
     for(let i=0;i<canvasCount;i++)
     {
         let arr = new Uint8ClampedArray(imageData.data);
