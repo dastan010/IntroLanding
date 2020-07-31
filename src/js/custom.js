@@ -60,7 +60,7 @@ function scrollFunc(){
                                 //find the highest probability canvas the pixel should be in
                                 let p = Math.floor((i/pixelArr.length) * canvasCount)
                                 let a = imageDataArray[weightedRandomDistrib(p)]
-                                a[i] = pixelArr[i]
+                                a[i]   = pixelArr[i]
                                 a[i+1] = pixelArr[i+1]
                                 a[i+2] = pixelArr[i+2]
                                 a[i+3] = pixelArr[i+3]
