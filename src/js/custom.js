@@ -1,7 +1,3 @@
-window.onclick = () => {
-    console.log(window.screen.width)
-}
-
 let screenWidth = window.screen.width,
     screenHeight = window.screen.height,
     val1 = 0,
@@ -38,124 +34,122 @@ function scrollFunc(){
             makeVisual.style.visibility = 'visible'
             makeVisual.style.setProperty('--animate-duration', '5s')
             makeVisual.classList.add(...mVclasses)
-            if(true){
-                let visualContainer = document.getElementById('visualContainer'),
-                    img = document.createElement("img")
+            let visualContainer = document.getElementById('visualContainer'),
+                img = document.createElement("img")
 
 
-                img.setAttribute("src","./assets/makeVisual.png")
-                img.setAttribute("class","makeVisualImg")
-                if(visualContainer.childElementCount === 1){
-                    setTimeout(()=> {
-                        let oldChild = document.getElementById('makeVisual')
-                        visualContainer.removeChild(oldChild)
-                        visualContainer.appendChild(img)
-                        html2canvas(visualContainer).then(canvas => {
-                            let ctx = canvas.getContext("2d"),
-                                imageData = ctx.getImageData(0, 0, canvas.width, canvas.height),
-                                pixelArr = imageData.data
-                            createBlankImageData(imageData)
-                            //put pixel info to imageDataArray (Weighted Distributed)
-                            for (let i = 0; i < pixelArr.length; i+=4) {
-                                //find the highest probability canvas the pixel should be in
-                                let p = Math.floor((i/pixelArr.length) * canvasCount)
-                                let a = imageDataArray[weightedRandomDistrib(p)]
-                                a[i]   = pixelArr[i]
-                                a[i+1] = pixelArr[i+1]
-                                a[i+2] = pixelArr[i+2]
-                                a[i+3] = pixelArr[i+3]
-                            }
+            img.setAttribute("src","./assets/makeVisual.png")
+            img.setAttribute("class","makeVisualImg")
+            if(visualContainer.childElementCount === 1){
+                setTimeout(()=> {
+                    let oldChild = document.getElementById('makeVisual')
+                    visualContainer.removeChild(oldChild)
+                    visualContainer.appendChild(img)
+                    html2canvas(visualContainer).then(canvas => {
+                        let ctx = canvas.getContext("2d"),
+                            imageData = ctx.getImageData(0,0,canvas.width,canvas.height),
+                            pixelArr = imageData.data
+                        createBlankImageData(imageData)
+                        // put pixel info to imageDataArray (Weighted Distributed)
+                        for (let i = 0; i < pixelArr.length; i+=4){
+                            //find the highest probability canvas the pixel should be in
+                            let p = Math.floor((i/pixelArr.length) * canvasCount),
+                                a = imageDataArray[weightedRandomDistrib(p)]
+                            a[i] = pixelArr[i]
+                            a[i+1] = pixelArr[i+1]
+                            a[i+2] = pixelArr[i+2]
+                            a[i+3] = pixelArr[i+3]
+                        }
 
-                            //create canvas for each imageData and append to target element
-                            for (let i = 0; i < canvasCount; i++) {
-                                let c = newCanvasFromImageData(imageDataArray[i], canvas.width, canvas.height)
-                                c.classList.add("dust")
-                                $('#visualContainer').append(c)
-                            }
-                            $("#visualContainer").children().not(".dust").fadeOut(3500)
-                            $(".dust").each( function(index){
-                                animateBlur($(this),0.8,800)
-                                setTimeout(() => {
-                                    animateTransform($(this),100,-100,chance.integer({ min: -15, max: 15 }),800+(110*index));
-                                }, 70*index);
-                                //remove the canvas from DOM tree when faded
-                                $(this).delay(70*index).fadeOut((110*index)+800,"easeInQuint",()=> {$( this ).remove();});
-                            });
+                        //create canvas for each imageData and append to target element
+                        for (let i = 0; i < canvasCount; i++){
+                            let c = newCanvasFromImageData(imageDataArray[i],canvas.width,canvas.height)
+                            c.classList.add("dust")
+                            $('#visualContainer').append(c)
+                        }
+                        $('#visualContainer').children().not(".dust").fadeOut(3500)
+                        $(".dust").each(function(index){
+                            animateBlur($(this),0.8,800)
+                            setTimeout(()=>{
+                                animateTransform($(this),100,-100,chance.integer({min : -15, max : 15}),800+(110*index))
+                            },70*index)
+                            $(this).delay(70*index).fadeOut((100*index) + 800,"easeInQuint",() => {$(this).remove()})
                         })
-                    }, 5000)
-                }
+                    })
+                    // visualContainer.removeChild(document.querySelector('.makeVisualImg'))
+                }, 5000)
             }
         }
-        // animation.add({
-        //         targets: '.ml5 .line',
-        //         opacity: [0.5,1],
-        //         scaleX: [0, 1],
-        //         easing: "easeInOutExpo",
-        //         duration: 700
-        //     }).add({
-        //         targets: '.ml5 .line',
-        //         duration: 600,
-        //         easing: "easeOutExpo",
-        //         translateY: (el, i) => (-val1 + val2*2*i) + "em"
-        //     }).add({
-        //         targets: '.ml5 .ampersand',
-        //         opacity: [0,1],
-        //         scaleY: [0.5, 1],
-        //         easing: "easeOutExpo",
-        //         duration: 600,
-        //         offset: '-=600'
-        //     }).add({
-        //         targets: '.ml5 .letters-left',
-        //         opacity: [0,1],
-        //         translateX: ["0.5em", 0],
-        //         easing: "easeOutExpo",
-        //         duration: 600,
-        //         offset: '-=300'
-        //     }).add({
-        //         targets: '.ml5 .letters-right',
-        //         opacity: [0,1],
-        //         translateX: ["-0.5em", 0],
-        //         easing: "easeOutExpo",
-        //         duration: 600,
-        //         offset: '-=600'
-        //     }).add({
-        //         targets: '.ml5',
-        //         opacity: 0,
-        //         duration: 1000,
-        //         easing: "easeOutExpo",
-        //         delay: 1000
-        //     });
-        // window.onscroll = animation.play
+        animation.add({
+                targets: '.ml5 .line',
+                opacity: [0.5,1],
+                scaleX: [0, 1],
+                easing: "easeInOutExpo",
+                duration: 700
+            }).add({
+                targets: '.ml5 .line',
+                duration: 600,
+                easing: "easeOutExpo",
+                translateY: (el, i) => (-val1 + val2*2*i) + "em"
+            }).add({
+                targets: '.ml5 .ampersand',
+                opacity: [0,1],
+                scaleY: [0.5, 1],
+                easing: "easeOutExpo",
+                duration: 600,
+                offset: '-=600'
+            }).add({
+                targets: '.ml5 .letters-left',
+                opacity: [0,1],
+                translateX: ["0.5em", 0],
+                easing: "easeOutExpo",
+                duration: 600,
+                offset: '-=300'
+            }).add({
+                targets: '.ml5 .letters-right',
+                opacity: [0,1],
+                translateX: ["-0.5em", 0],
+                easing: "easeOutExpo",
+                duration: 600,
+                offset: '-=600'
+            }).add({
+                targets: '.ml5',
+                opacity: 0,
+                duration: 1000,
+                easing: "easeOutExpo",
+                delay: 1000
+            });
+        window.onscroll = animation.play
     }
 }
 
-function weightedRandomDistrib(peak) {
-    let prob = [], seq = [];
-    for(let i=0;i<canvasCount;i++) {
-        prob.push(Math.pow(canvasCount-Math.abs(peak-i),3));
-        seq.push(i);
+function weightedRandomDistrib(peak){
+    let prob = [], seq = []
+    for(let i = 0; i < canvasCount;i++){
+        prob.push(Math.pow(canvasCount - Math.abs(peak - i),3))
+        seq.push(i)
     }
-    return chance.weighted(seq, prob);
+    return chance.weighted(seq,prob)
 }
+
 
 function createBlankImageData(imageData) {
-    for(let i=0;i<canvasCount;i++)
-    {
-        let arr = new Uint8ClampedArray(imageData.data);
-        for (let j = 0; j < arr.length; j++) {
-            arr[j] = 0;
+    for (let i = 0; i < canvasCount;i++){
+        let arr = new Uint8ClampedArray(imageData.data)
+        for (let j = 0; j < arr.length;j++){
+            arr[j] = 0
         }
-        imageDataArray.push(arr);
+    imageDataArray.push(arr)
     }
 }
 
-function newCanvasFromImageData(imageDataArray ,w , h) {
+function newCanvasFromImageData(imageDataArray,w ,h){
     let canvas = document.createElement('canvas')
     canvas.width = w
     canvas.height = h
-    tempCtx = canvas.getContext("2d")
-    tempCtx.putImageData(new ImageData(imageDataArray, w , h), 0, 0)
-    return canvas;
+    let tempCtx = canvas.getContext("2d")
+    tempCtx.putImageData(new ImageData(imageDataArray,w,h),0,0)
+    return canvas
 }
 
 function animateTransform(elem,sx,sy,angle,duration) {
@@ -178,14 +172,14 @@ function animateTransform(elem,sx,sy,angle,duration) {
 }
 
 function animateBlur(elem,radius,duration) {
-    let r =0;
+    let r =0
     $({rad:0}).animate({rad:radius}, {
         duration: duration,
         easing: "easeOutQuad",
         step: function(now) {
             elem.css({
                 filter: 'blur(' + now + 'px)'
-            });
+            })
         }
     });
 }
