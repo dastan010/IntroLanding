@@ -50,8 +50,7 @@ function scrollFunc(){
                         let oldChild = document.getElementById('makeVisual')
                         visualContainer.removeChild(oldChild)
                         visualContainer.appendChild(img)
-
-                        html2canvas(img).then(canvas => {
+                        html2canvas(visualContainer).then(canvas => {
                             let ctx = canvas.getContext("2d"),
                                 imageData = ctx.getImageData(0, 0, canvas.width, canvas.height),
                                 pixelArr = imageData.data
