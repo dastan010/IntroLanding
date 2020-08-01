@@ -75,11 +75,17 @@ function scrollFunc(){
                             },70*index)
                             $(this).delay(70*index).fadeOut((100*index) + 800,"easeInQuint",() => {
                                 $(this).remove()
-                                if (visualContainer.childElementCount === 2){
+                                if (visualContainer.childElementCount === 20){
                                     visualContainer.removeChild(document.querySelector('.makeVisualImg'))
                                     visualContainer.style.alignItems = 'normal'
-                                    let portfolioContainer = document.querySelector('.portfolioContainer')
+                                    let portfolioContainer = document.querySelector('.portfolioContainer'),
+                                        animateArr = ['animate__animated','animate__flipInX','animate__delay-3s']
                                     portfolioContainer.style.display = 'inline-flex'
+                                    let children = portfolioContainer.children
+                                    for(let i = 0; i < children.length; i++){
+                                        animateArr[animateArr.length-1] = `animate__delay-${i+1}s`
+                                        children[i].classList.add(...animateArr)
+                                    }
                                 }
                             })
                         })

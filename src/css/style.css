@@ -154,13 +154,24 @@ body {
   width: 30rem;
   border-radius: 0px;
   background-color: black;
-  border: 1px solid white;
+  border: 5px solid white;
   color: white;
+  transform-style: preserve-3d;
+}
+
+.card-title {
+  transform: translateZ(30px);
 }
 
 .card-body {
-  border-top: 1px solid white;
+  border-top: 5px solid white;
   text-align: center;
+  padding: 70px;
+}
+
+.card-text {
+  margin-bottom: 48px;
+  transform: translateZ(40px);
 }
 
 .custom-button {
@@ -170,6 +181,8 @@ body {
   color: white;
   padding: 10px;
   font-size: 20px;
+  transform: translateZ(50px) translateY(-50%) translateX(-50%);
+  position: absolute;
 }
 
 .custom-button:hover {
