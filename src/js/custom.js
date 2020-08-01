@@ -32,7 +32,7 @@ function scrollFunc(){
 
         if(makeVisual){
             makeVisual.style.visibility = 'visible'
-            makeVisual.style.setProperty('--animate-duration', '5s')
+            makeVisual.style.setProperty('--animate-duration', '3s')
             makeVisual.classList.add(...mVclasses)
             let visualContainer = document.getElementById('visualContainer'),
                 img = document.createElement("img")
@@ -40,7 +40,7 @@ function scrollFunc(){
 
             img.setAttribute("src","./assets/makeVisual.png")
             img.setAttribute("class","makeVisualImg")
-            if(visualContainer.childElementCount === 1){
+            if(visualContainer.childElementCount === 2){
                 setTimeout(()=> {
                     let oldChild = document.getElementById('makeVisual')
                     visualContainer.removeChild(oldChild)
@@ -73,53 +73,60 @@ function scrollFunc(){
                             setTimeout(()=>{
                                 animateTransform($(this),100,-100,chance.integer({min : -15, max : 15}),800+(110*index))
                             },70*index)
-                            $(this).delay(70*index).fadeOut((100*index) + 800,"easeInQuint",() => {$(this).remove()})
+                            $(this).delay(70*index).fadeOut((100*index) + 800,"easeInQuint",() => {
+                                $(this).remove()
+                                if (visualContainer.childElementCount === 2){
+                                    visualContainer.removeChild(document.querySelector('.makeVisualImg'))
+                                    visualContainer.style.alignItems = 'normal'
+                                    let portfolioContainer = document.querySelector('.portfolioContainer')
+                                    portfolioContainer.style.display = 'inline-flex'
+                                }
+                            })
                         })
                     })
-                    // visualContainer.removeChild(document.querySelector('.makeVisualImg'))
-                }, 5000)
+                }, 3000)
             }
         }
-        animation.add({
-                targets: '.ml5 .line',
-                opacity: [0.5,1],
-                scaleX: [0, 1],
-                easing: "easeInOutExpo",
-                duration: 700
-            }).add({
-                targets: '.ml5 .line',
-                duration: 600,
-                easing: "easeOutExpo",
-                translateY: (el, i) => (-val1 + val2*2*i) + "em"
-            }).add({
-                targets: '.ml5 .ampersand',
-                opacity: [0,1],
-                scaleY: [0.5, 1],
-                easing: "easeOutExpo",
-                duration: 600,
-                offset: '-=600'
-            }).add({
-                targets: '.ml5 .letters-left',
-                opacity: [0,1],
-                translateX: ["0.5em", 0],
-                easing: "easeOutExpo",
-                duration: 600,
-                offset: '-=300'
-            }).add({
-                targets: '.ml5 .letters-right',
-                opacity: [0,1],
-                translateX: ["-0.5em", 0],
-                easing: "easeOutExpo",
-                duration: 600,
-                offset: '-=600'
-            }).add({
-                targets: '.ml5',
-                opacity: 0,
-                duration: 1000,
-                easing: "easeOutExpo",
-                delay: 1000
-            });
-        window.onscroll = animation.play
+        // animation.add({
+        //         targets: '.ml5 .line',
+        //         opacity: [0.5,1],
+        //         scaleX: [0, 1],
+        //         easing: "easeInOutExpo",
+        //         duration: 700
+        //     }).add({
+        //         targets: '.ml5 .line',
+        //         duration: 600,
+        //         easing: "easeOutExpo",
+        //         translateY: (el, i) => (-val1 + val2*2*i) + "em"
+        //     }).add({
+        //         targets: '.ml5 .ampersand',
+        //         opacity: [0,1],
+        //         scaleY: [0.5, 1],
+        //         easing: "easeOutExpo",
+        //         duration: 600,
+        //         offset: '-=600'
+        //     }).add({
+        //         targets: '.ml5 .letters-left',
+        //         opacity: [0,1],
+        //         translateX: ["0.5em", 0],
+        //         easing: "easeOutExpo",
+        //         duration: 600,
+        //         offset: '-=300'
+        //     }).add({
+        //         targets: '.ml5 .letters-right',
+        //         opacity: [0,1],
+        //         translateX: ["-0.5em", 0],
+        //         easing: "easeOutExpo",
+        //         duration: 600,
+        //         offset: '-=600'
+        //     }).add({
+        //         targets: '.ml5',
+        //         opacity: 0,
+        //         duration: 1000,
+        //         easing: "easeOutExpo",
+        //         delay: 1000
+        //     });
+        // window.onscroll = animation.play
     }
 }
 

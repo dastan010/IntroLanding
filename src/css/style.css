@@ -139,6 +139,44 @@ body {
   opacity: 0;
 }
 
+.portfolioColumn {
+  display: flex;
+  justify-content: center;
+}
+
+.portfolio {
+  border: 1px solid white;
+  width: 400px;
+  height: 400px;
+}
+
+.card {
+  width: 30rem;
+  border-radius: 0px;
+  background-color: black;
+  border: 1px solid white;
+  color: white;
+}
+
+.card-body {
+  border-top: 1px solid white;
+  text-align: center;
+}
+
+.custom-button {
+  background: transparent;
+  border-radius: 0px;
+  border: 3px solid white;
+  color: white;
+  padding: 10px;
+  font-size: 20px;
+}
+
+.custom-button:hover {
+  color: white;
+  text-decoration: none;
+}
+
 /* End Section2 */
 
 
@@ -189,7 +227,7 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
   .makeVisualImg {
     width: 200px;
-    margin-top: 22px;
+    margin-top: -1px;
     margin-left: auto;
     margin-right: auto;
     display: block;
