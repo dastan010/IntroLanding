@@ -90,6 +90,7 @@ body {
   visibility: hidden;
   font-size: 90px;
   color: white;
+  margin-bottom: 300px;
 }
 
 .makeVisualImg {
@@ -97,6 +98,7 @@ body {
   margin-left: auto;
   margin-right: auto;
   display: block;
+  margin-bottom: 300px;
 }
 
 .dust {
@@ -254,5 +256,22 @@ Extra (xl) large devices (large desktops, 1200px and up)
 
   .navbar-brand img {
     height: 30px;
+  }
+
+  .card-body {
+    border-top: 5px solid white;
+    text-align: center;
+    padding: 30px;
+  }
+
+  .custom-button {
+    background: transparent;
+    border-radius: 0px;
+    border: 3px solid white;
+    color: white;
+    padding: 5px;
+    font-size: 10px;
+    transform: translateZ(50px) translateY(-50%) translateX(-50%);
+    position: absolute;
   }
 }

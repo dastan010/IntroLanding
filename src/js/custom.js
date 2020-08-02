@@ -19,13 +19,16 @@ switch (screenWidth) {
 
 
 window.onscroll = function(){
+    let element = document.getElementById('section2'),
+        scrollVal = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
+    console.log(element.offsetTop - scrollVal)
     scrollFunc()
 }
 
 function scrollFunc(){
     let element = document.getElementById('section2'),
         scrollVal = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0
-    if(element.offsetTop - scrollVal < 180){
+    if(element.offsetTop - scrollVal < 529){
         let makeVisual = document.getElementById('makeVisual'),
             animation = anime.timeline({loop: false}),
             mVclasses = ['animate__animated','animate__fadeIn']
