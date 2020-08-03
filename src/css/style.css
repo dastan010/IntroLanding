@@ -168,12 +168,13 @@ body {
 .card-body {
   border-top: 5px solid white;
   text-align: center;
-  padding: 70px;
+  padding: 41px 44px 68px 44px;
 }
 
 .card-text {
   margin-bottom: 48px;
   transform: translateZ(40px);
+  /*font-family: 'Lato', sans-serif;*/
 }
 
 .custom-button {
