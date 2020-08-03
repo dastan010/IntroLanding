@@ -32,7 +32,7 @@ function scrollFunc(){
 
         if(makeVisual){
             makeVisual.style.visibility = 'visible'
-            makeVisual.style.setProperty('--animate-duration', '3s')
+            makeVisual.style.setProperty('--animate-duration', '1s')
             makeVisual.classList.add(...mVclasses)
             let visualContainer = document.getElementById('visualContainer'),
                 img = document.createElement("img")
@@ -90,7 +90,7 @@ function scrollFunc(){
                             })
                         })
                     })
-                }, 3000)
+                }, 1000)
             }
         }
         // animation.add({
