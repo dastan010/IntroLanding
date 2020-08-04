@@ -75,7 +75,7 @@ function scrollFunc(){
                             },70*index)
                             $(this).delay(70*index).fadeOut((100*index) + 800,"easeInQuint",() => {
                                 $(this).remove()
-                                if (visualContainer.childElementCount === 20){
+                                if (visualContainer.childElementCount === 30){
                                     visualContainer.removeChild(document.querySelector('.makeVisualImg'))
                                     visualContainer.style.alignItems = 'normal'
                                     let portfolioContainer = document.querySelector('.portfolioContainer'),
