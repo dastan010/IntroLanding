@@ -85,6 +85,10 @@ body {
   height: 900px;
 }
 
+.colSection2 {
+  margin-top: 300px;
+}
+
 #visualContainer {
   display: flex;
   align-items: center;
@@ -287,5 +291,15 @@ Extra (xl) large devices (large desktops, 1200px and up)
     font-size: 10px;
     transform: translateZ(50px) translateY(-50%) translateX(-50%);
     position: absolute;
+  }
+
+  #section3 {
+    height: 900px;
+  }
+
+  .responsive1 {
+    display: none;
+    height: 180px;
+    margin-top: 800px;
   }
 }

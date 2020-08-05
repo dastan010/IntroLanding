@@ -1,3 +1,5 @@
+// console.log(window.screen.width);
+
 let screenWidth = window.screen.width,
     screenHeight = window.screen.height,
     val1 = 0,
@@ -13,7 +15,10 @@ switch (screenWidth) {
     case 1920 :
         val1 = 4.100
         val2 = 4.200
-        break
+        break    
+    case 1440 :
+        val1 = 6.100
+        val2 = 6.200    
 }
 
 
@@ -95,9 +100,16 @@ function scrollFunc(){
         }
     }
     if(element2.offsetTop - scrollVal < 700){
-        let ml5 = document.querySelector('.ml5')
+        let ml5 = document.querySelector('.ml5'),
+            responsive1 = document.querySelector('.responsive1')
+        if(screenWidth < 380){
+            responsive1.style.height = 180
+            responsive1.style.margin = null
+            responsive1.style.marginTop = 200;
+        }
+        responsive1.style.display = 'inline'
         ml5.style.visibility = 'visible'
-        let animation = anime.timeline({loop : false});
+        let animation = anime.timeline({loop : false})
         animation.add({
             targets: '.ml5 .line',
             opacity: [0.5,1],
